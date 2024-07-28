@@ -1,0 +1,88 @@
+# Garage Ultrasonic Sensor to detect if cars are in garage by measuring the distance from sensor to the floor.
+# Sensor mounted on bottom of garage door opener point to floor
+# Hardware: Ultrasonic Module HC-SR04 Sensor and ESP32
+
+substitutions:
+  name: middle-garage-ultrasonic-01ddcc
+
+esphome:
+  name: ${name}
+  name_add_mac_suffix: false
+
+esp32:
+  board: esp32dev
+  framework:
+    type: arduino
+
+# Enable logging
+logger:
+  # level: VERBOSE
+  
+# Enable Home Assistant API
+api:
+  encryption:
+    key: !secret api_key
+
+ota:
+  - platform: esphome
+    password: !secret esphome_password
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Garage-Ultrasonic"
+    password: !secret ap_key
+
+captive_portal:
+  
+button:
+- platform: safe_mode
+  name: Safe Mode Boot
+  entity_category: diagnostic
+
+sensor:
+  - platform: ultrasonic
+    trigger_pin: GPIO22
+    echo_pin: GPIO23
+    name: "Right Garage Ultrasonic"
+    id: Right_Garage_Ultrasonic
+    update_interval: 15s
+    pulse_time: 20us
+    timeout: 3.5m
+    filters:
+      - delta: 0.03
+  - platform: ultrasonic
+    trigger_pin: GPIO18
+    echo_pin: GPIO19
+    name: "Middle Garage Ultrasonic"
+    id: Middle_Garage_Ultrasonic
+    update_interval: 15s
+    pulse_time: 20us
+    timeout: 3.5m
+    filters:
+      - delta: 0.03
+
+binary_sensor:
+  - platform: template
+    name: Right Garage Occupancy
+    lambda: |-
+      if (id(Right_Garage_Ultrasonic).state < 2.0) {
+        // car is home.
+        return true;
+      } else {
+        // car is not home.
+        return false;
+      }
+  - platform: template
+    name: Middle Garage Occupancy
+    lambda: |-
+      if (id(Middle_Garage_Ultrasonic).state < 2.0) {
+        // car is home.
+        return true;
+      } else {
+        // car is not home.
+        return false;
+      }
