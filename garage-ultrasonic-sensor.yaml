@@ -2,6 +2,7 @@
 # Sensor mounted on bottom of garage door opener point to floor
 # Hardware: Ultrasonic Module HC-SR04 Sensor and ESP32
 
+#ESPHOME Code below:
 substitutions:
   name: middle-garage-ultrasonic-01ddcc
 
