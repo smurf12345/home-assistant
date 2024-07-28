@@ -1,0 +1,260 @@
+# YAML for overlaying MTR-1 Sensor graph onto a Home-Assistant Picture-Element card
+# Wiki: https://github.com/smurf12345/home-assistant/wiki/Apollo-Automation-MTR%E2%80%901-Sensor-overlayed-on-a-Home%E2%80%90Assistant-Picture%E2%80%90Element-Card
+elements:
+  - type: custom:plotly-graph
+    style:
+      left: 76%
+      top: 60%
+      transform: rotate(135deg) scale(2)
+      transform-origin: center
+    card_mod:
+      style: |
+        ha-card {
+          box-shadow: none;
+        }
+    refresh_interval: 2
+    hours_to_show: current_day
+    layout:
+      paper_bgcolor: rgba(0, 0, 0, 0.0)
+      plot_bgcolor: rgba(100, 0, 0, 0.0)
+      height: 100
+      margin:
+        l: 0
+        r: 0
+        t: 0
+        b: 0
+      showlegend: false
+      xaxis:
+        dtick: 3.28084
+        gridcolor: RGBA(200,200,200,0)
+        zerolinecolor: RGBA(200,200,200,0)
+        type: number
+        fixedrange: true
+        range:
+          - -13.12336
+          - 13.12336
+      yaxis:
+        dtick: 3.28084
+        gridcolor: RGBA(200,200,200,0)
+        zerolinecolor: RGBA(200,200,200,0)
+        scaleanchor: x
+        scaleratio: 1
+        fixedrange: true
+        range:
+          - 14
+          - 0
+    entities:
+      - entity: ''
+        name: Target1
+        marker:
+          size: 6
+        line:
+          shape: spline
+          width: 5
+          color: rgba(255, 0, 0, 1)
+        x:
+          - >-
+            $ex hass.states["sensor.apollo_mtr_1_<changeme>_target_1_x"].state *
+            0.00328084
+        'y':
+          - >-
+            $ex hass.states["sensor.apollo_mtr_1_<changeme>_target_1_y"].state *
+            0.00328084
+      - entity: ''
+        name: Target2
+        marker:
+          size: 6
+        line:
+          shape: spline
+          width: 5
+        x:
+          - >-
+            $ex hass.states["sensor.apollo_mtr_1_<changeme>_target_2_x"].state *
+            0.00328084
+        'y':
+          - >-
+            $ex hass.states["sensor.apollo_mtr_1_<changeme>_target_2_y"].state *
+            0.00328084
+      - entity: ''
+        name: Target3
+        marker:
+          size: 6
+        line:
+          shape: spline
+          width: 5
+        x:
+          - >-
+            $ex hass.states["sensor.apollo_mtr_1_<changeme>_target_3_x"].state *
+            0.00328084
+        'y':
+          - >-
+            $ex hass.states["sensor.apollo_mtr_1_<changeme>_target_3_y"].state *
+            0.00328084
+      - entity: ''
+        name: Zone1
+        mode: lines
+        fill: toself
+        fillcolor: RGBA(20,200,0,0.1)
+        line:
+          color: RGBA(20,200,0,0.3)
+          shape: line
+          width: 2
+        x:
+          - >-
+            $ex hass.states["number.apollo_mtr_1_<changeme>_zone_1_x1"].state *
+            0.00328084
+          - >-
+            $ex hass.states["number.apollo_mtr_1_<changeme>_zone_1_x1"].state *
+            0.00328084
+          - >-
+            $ex hass.states["number.apollo_mtr_1_<changeme>_zone_1_x2"].state *
+            0.00328084
+          - >-
+            $ex hass.states["number.apollo_mtr_1_<changeme>_zone_1_x2"].state *
+            0.00328084
+          - >-
+            $ex hass.states["number.apollo_mtr_1_<changeme>_zone_1_x1"].state *
+            0.00328084
+        'y':
+          - >-
+            $ex hass.states["number.apollo_mtr_1_<changeme>_zone_1_y1"].state *
+            0.00328084
+          - >-
+            $ex hass.states["number.apollo_mtr_1_<changeme>_zone_1_y2"].state *
+            0.00328084
+          - >-
+            $ex hass.states["number.apollo_mtr_1_<changeme>_zone_1_y2"].state *
+            0.00328084
+          - >-
+            $ex hass.states["number.apollo_mtr_1_<changeme>_zone_1_y1"].state *
+            0.00328084
+          - >-
+            $ex hass.states["number.apollo_mtr_1_<changeme>_zone_1_y1"].state *
+            0.00328084
+      - entity: ''
+        name: Zone2
+        mode: lines
+        fill: toself
+        fillcolor: RGBA(200,0,255,0.03)
+        line:
+          color: RGBA(200,0,255,0.1)
+          shape: line
+          width: 1
+        x:
+          - >-
+            $ex hass.states["number.apollo_mtr_1_<changeme>_zone_2_x1"].state *
+            0.00328084
+          - >-
+            $ex hass.states["number.apollo_mtr_1_<changeme>_zone_2_x1"].state *
+            0.00328084
+          - >-
+            $ex hass.states["number.apollo_mtr_1_<changeme>_zone_2_x2"].state *
+            0.00328084
+          - >-
+            $ex hass.states["number.apollo_mtr_1_<changeme>_zone_2_x2"].state *
+            0.00328084
+          - >-
+            $ex hass.states["number.apollo_mtr_1_<changeme>_zone_2_x1"].state *
+            0.00328084
+        'y':
+          - >-
+            $ex hass.states["number.apollo_mtr_1_<changeme>_zone_2_y1"].state *
+            0.00328084
+          - >-
+            $ex hass.states["number.apollo_mtr_1_<changeme>_zone_2_y2"].state *
+            0.00328084
+          - >-
+            $ex hass.states["number.apollo_mtr_1_<changeme>_zone_2_y2"].state *
+            0.00328084
+          - >-
+            $ex hass.states["number.apollo_mtr_1_<changeme>_zone_2_y1"].state *
+            0.00328084
+          - >-
+            $ex hass.states["number.apollo_mtr_1_<changeme>_zone_2_y1"].state *
+            0.00328084
+      - entity: ''
+        name: Zone3
+        mode: lines
+        fill: toself
+        fillcolor: RGBA(200,120,55,0.00)
+        line:
+          color: RGBA(200,120,55,0.0)
+          shape: line
+          width: 2
+        x:
+          - >-
+            $ex hass.states["number.apollo_mtr_1_<changeme>_zone_3_x1"].state *
+            0.00328084
+          - >-
+            $ex hass.states["number.apollo_mtr_1_<changeme>_zone_3_x1"].state *
+            0.00328084
+          - >-
+            $ex hass.states["number.apollo_mtr_1_<changeme>_zone_3_x2"].state *
+            0.00328084
+          - >-
+            $ex hass.states["number.apollo_mtr_1_<changeme>_zone_3_x2"].state *
+            0.00328084
+          - >-
+            $ex hass.states["number.apollo_mtr_1_<changeme>_zone_3_x1"].state *
+            0.00328084
+        'y':
+          - >-
+            $ex hass.states["number.apollo_mtr_1_<changeme>_zone_3_y1"].state *
+            0.00328084
+          - >-
+            $ex hass.states["number.apollo_mtr_1_<changeme>_zone_3_y2"].state *
+            0.00328084
+          - >-
+            $ex hass.states["number.apollo_mtr_1_<changeme>_zone_3_y2"].state *
+            0.00328084
+          - >-
+            $ex hass.states["number.apollo_mtr_1_<changeme>_zone_3_y1"].state *
+            0.00328084
+          - >-
+            $ex hass.states["number.apollo_mtr_1_<changeme>_zone_3_y1"].state *
+            0.00328084
+      - entity: ''
+        name: Coverage
+        mode: lines
+        fill: tonexty
+        fillcolor: rgba(168, 216, 234, 0.0)
+        line:
+          color: RGBA(200,120,55,0.0)
+          shape: line
+          width: 1
+          dash: dot
+        x:
+          - 0
+          - $ex 7500 * Math.sin((2 * Math.PI)/360 * 60) * 0.00328084
+          - 4500 * 0.00328084
+          - 4000 * 0.00328084
+          - 3000 * 0.00328084
+          - 2000 * 0.00328084
+          - 1000 * 0.00328084
+          - 0
+          - '-1000 * 0.00328084'
+          - '-2000 * 0.00328084'
+          - '-3000 * 0.00328084'
+          - '-4000 * 0.00328084'
+          - '-4500 * 0.00328084'
+          - $ex -7500 * Math.sin((2 * Math.PI)/360 * 60) * 0.00328084
+          - 0
+        'y':
+          - 0
+          - $ex 7500 * Math.cos((2 * Math.PI)/360 * 60) * 0.00328084
+          - $ex Math.sqrt( 7500**2 - 4500**2 ) * 0.00328084
+          - $ex Math.sqrt( 7500**2 - 4000**2 ) * 0.00328084
+          - $ex Math.sqrt( 7500**2 - 3000**2 ) * 0.00328084
+          - $ex Math.sqrt( 7500**2 - 2000**2 ) * 0.00328084
+          - $ex Math.sqrt( 7500**2 - 1000**2 ) * 0.00328084
+          - 7500 * 0.00328084
+          - $ex Math.sqrt( 7500**2 - 1000**2 ) * 0.00328084
+          - $ex Math.sqrt( 7500**2 - 2000**2 ) * 0.00328084
+          - $ex Math.sqrt( 7500**2 - 3000**2 ) * 0.00328084
+          - $ex Math.sqrt( 7500**2 - 4000**2 ) * 0.00328084
+          - $ex Math.sqrt( 7500**2 - 4500**2 ) * 0.00328084
+          - $ex 7500 * Math.cos((2 * Math.PI)/360 * 60) * 0.00328084
+          - 0
+    raw_plotly_config: true
+image: /local/images/floorplan.jpg
+type: picture-elements
