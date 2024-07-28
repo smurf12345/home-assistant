@@ -1,5 +1,6 @@
 # YAML for overlaying MTR-1 Sensor graph onto a Home-Assistant Picture-Element card
 # Wiki: https://github.com/smurf12345/home-assistant/wiki/Apollo-Automation-MTR%E2%80%901-Sensor-overlayed-on-a-Home%E2%80%90Assistant-Picture%E2%80%90Element-Card
+# Note: Code modified to show feet instead of meters
 elements:
   - type: custom:plotly-graph
     style:
