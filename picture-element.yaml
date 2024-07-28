@@ -1,0 +1,1118 @@
+# My Home-Assistant Picture-Element Card
+style: |
+  @keyframes charge-glow {
+    from {opacity: 0;}
+    to {opacity: 100;}
+    from {opacity: 100;}
+    to {opacity: 0;}
+  }
+elements:
+  - type: custom:plotly-graph
+    style:
+      left: 76%
+      top: 60%
+      transform: rotate(135deg) scale(2)
+      transform-origin: center
+    card_mod:
+      style: |
+        ha-card {
+          box-shadow: none;
+        }
+    refresh_interval: 2
+    hours_to_show: current_day
+    layout:
+      paper_bgcolor: rgba(0, 0, 0, 0.0)
+      plot_bgcolor: rgba(100, 0, 0, 0.0)
+      height: 100
+      margin:
+        l: 0
+        r: 0
+        t: 0
+        b: 0
+      showlegend: false
+      xaxis:
+        dtick: 3.28084
+        gridcolor: RGBA(200,200,200,0)
+        zerolinecolor: RGBA(200,200,200,0)
+        type: number
+        fixedrange: true
+        range:
+          - -13.12336
+          - 13.12336
+      yaxis:
+        dtick: 3.28084
+        gridcolor: RGBA(200,200,200,0)
+        zerolinecolor: RGBA(200,200,200,0)
+        scaleanchor: x
+        scaleratio: 1
+        fixedrange: true
+        range:
+          - 14
+          - 0
+    entities:
+      - entity: ''
+        name: Target1
+        marker:
+          size: 6
+        line:
+          shape: spline
+          width: 5
+          color: rgba(255, 0, 0, 1)
+        x:
+          - >-
+            $ex hass.states["sensor.apollo_mtr_1_ChangeMe_target_1_x"].state *
+            0.00328084
+        'y':
+          - >-
+            $ex hass.states["sensor.apollo_mtr_1_ChangeMe_target_1_y"].state *
+            0.00328084
+      - entity: ''
+        name: Target2
+        marker:
+          size: 6
+        line:
+          shape: spline
+          width: 5
+        x:
+          - >-
+            $ex hass.states["sensor.apollo_mtr_1_ChangeMe_target_2_x"].state *
+            0.00328084
+        'y':
+          - >-
+            $ex hass.states["sensor.apollo_mtr_1_ChangeMe_target_2_y"].state *
+            0.00328084
+      - entity: ''
+        name: Target3
+        marker:
+          size: 6
+        line:
+          shape: spline
+          width: 5
+        x:
+          - >-
+            $ex hass.states["sensor.apollo_mtr_1_ChangeMe_target_3_x"].state *
+            0.00328084
+        'y':
+          - >-
+            $ex hass.states["sensor.apollo_mtr_1_ChangeMe_target_3_y"].state *
+            0.00328084
+      - entity: ''
+        name: Zone1
+        mode: lines
+        fill: toself
+        fillcolor: RGBA(20,200,0,0.0)
+        line:
+          color: RGBA(20,200,0,0.0)
+          shape: line
+          width: 1
+        x:
+          - >-
+            $ex hass.states["number.apollo_mtr_1_ChangeMe_zone_1_x1"].state *
+            0.00328084
+          - >-
+            $ex hass.states["number.apollo_mtr_1_ChangeMe_zone_1_x1"].state *
+            0.00328084
+          - >-
+            $ex hass.states["number.apollo_mtr_1_ChangeMe_zone_1_x2"].state *
+            0.00328084
+          - >-
+            $ex hass.states["number.apollo_mtr_1_ChangeMe_zone_1_x2"].state *
+            0.00328084
+          - >-
+            $ex hass.states["number.apollo_mtr_1_ChangeMe_zone_1_x1"].state *
+            0.00328084
+        'y':
+          - >-
+            $ex hass.states["number.apollo_mtr_1_ChangeMe_zone_1_y1"].state *
+            0.00328084
+          - >-
+            $ex hass.states["number.apollo_mtr_1_ChangeMe_zone_1_y2"].state *
+            0.00328084
+          - >-
+            $ex hass.states["number.apollo_mtr_1_ChangeMe_zone_1_y2"].state *
+            0.00328084
+          - >-
+            $ex hass.states["number.apollo_mtr_1_ChangeMe_zone_1_y1"].state *
+            0.00328084
+          - >-
+            $ex hass.states["number.apollo_mtr_1_ChangeMe_zone_1_y1"].state *
+            0.00328084
+      - entity: ''
+        name: Zone2
+        mode: lines
+        fill: toself
+        fillcolor: RGBA(200,0,255,0.00)
+        line:
+          color: RGBA(200,0,255,0.0)
+          shape: line
+          width: 2
+        x:
+          - >-
+            $ex hass.states["number.apollo_mtr_1_ChangeMe_zone_2_x1"].state *
+            0.00328084
+          - >-
+            $ex hass.states["number.apollo_mtr_1_ChangeMe_zone_2_x1"].state *
+            0.00328084
+          - >-
+            $ex hass.states["number.apollo_mtr_1_ChangeMe_zone_2_x2"].state *
+            0.00328084
+          - >-
+            $ex hass.states["number.apollo_mtr_1_ChangeMe_zone_2_x2"].state *
+            0.00328084
+          - >-
+            $ex hass.states["number.apollo_mtr_1_ChangeMe_zone_2_x1"].state *
+            0.00328084
+        'y':
+          - >-
+            $ex hass.states["number.apollo_mtr_1_ChangeMe_zone_2_y1"].state *
+            0.00328084
+          - >-
+            $ex hass.states["number.apollo_mtr_1_ChangeMe_zone_2_y2"].state *
+            0.00328084
+          - >-
+            $ex hass.states["number.apollo_mtr_1_ChangeMe_zone_2_y2"].state *
+            0.00328084
+          - >-
+            $ex hass.states["number.apollo_mtr_1_ChangeMe_zone_2_y1"].state *
+            0.00328084
+          - >-
+            $ex hass.states["number.apollo_mtr_1_ChangeMe_zone_2_y1"].state *
+            0.00328084
+      - entity: ''
+        name: Zone3
+        mode: lines
+        fill: toself
+        fillcolor: RGBA(200,120,55,0.00)
+        line:
+          color: RGBA(200,120,55,0.0)
+          shape: line
+          width: 2
+        x:
+          - >-
+            $ex hass.states["number.apollo_mtr_1_ChangeMe_zone_3_x1"].state *
+            0.00328084
+          - >-
+            $ex hass.states["number.apollo_mtr_1_ChangeMe_zone_3_x1"].state *
+            0.00328084
+          - >-
+            $ex hass.states["number.apollo_mtr_1_ChangeMe_zone_3_x2"].state *
+            0.00328084
+          - >-
+            $ex hass.states["number.apollo_mtr_1_ChangeMe_zone_3_x2"].state *
+            0.00328084
+          - >-
+            $ex hass.states["number.apollo_mtr_1_ChangeMe_zone_3_x1"].state *
+            0.00328084
+        'y':
+          - >-
+            $ex hass.states["number.apollo_mtr_1_ChangeMe_zone_3_y1"].state *
+            0.00328084
+          - >-
+            $ex hass.states["number.apollo_mtr_1_ChangeMe_zone_3_y2"].state *
+            0.00328084
+          - >-
+            $ex hass.states["number.apollo_mtr_1_ChangeMe_zone_3_y2"].state *
+            0.00328084
+          - >-
+            $ex hass.states["number.apollo_mtr_1_ChangeMe_zone_3_y1"].state *
+            0.00328084
+          - >-
+            $ex hass.states["number.apollo_mtr_1_ChangeMe_zone_3_y1"].state *
+            0.00328084
+      - entity: ''
+        name: Coverage
+        mode: lines
+        fill: tonexty
+        fillcolor: rgba(168, 216, 234, 0.0)
+        line:
+          color: RGBA(200,120,55,0.0)
+          shape: line
+          width: 1
+          dash: dot
+        x:
+          - 0
+          - $ex 7500 * Math.sin((2 * Math.PI)/360 * 60) * 0.00328084
+          - 4500 * 0.00328084
+          - 4000 * 0.00328084
+          - 3000 * 0.00328084
+          - 2000 * 0.00328084
+          - 1000 * 0.00328084
+          - 0
+          - '-1000 * 0.00328084'
+          - '-2000 * 0.00328084'
+          - '-3000 * 0.00328084'
+          - '-4000 * 0.00328084'
+          - '-4500 * 0.00328084'
+          - $ex -7500 * Math.sin((2 * Math.PI)/360 * 60) * 0.00328084
+          - 0
+        'y':
+          - 0
+          - $ex 7500 * Math.cos((2 * Math.PI)/360 * 60) * 0.00328084
+          - $ex Math.sqrt( 7500**2 - 4500**2 ) * 0.00328084
+          - $ex Math.sqrt( 7500**2 - 4000**2 ) * 0.00328084
+          - $ex Math.sqrt( 7500**2 - 3000**2 ) * 0.00328084
+          - $ex Math.sqrt( 7500**2 - 2000**2 ) * 0.00328084
+          - $ex Math.sqrt( 7500**2 - 1000**2 ) * 0.00328084
+          - 7500 * 0.00328084
+          - $ex Math.sqrt( 7500**2 - 1000**2 ) * 0.00328084
+          - $ex Math.sqrt( 7500**2 - 2000**2 ) * 0.00328084
+          - $ex Math.sqrt( 7500**2 - 3000**2 ) * 0.00328084
+          - $ex Math.sqrt( 7500**2 - 4000**2 ) * 0.00328084
+          - $ex Math.sqrt( 7500**2 - 4500**2 ) * 0.00328084
+          - $ex 7500 * Math.cos((2 * Math.PI)/360 * 60) * 0.00328084
+          - 0
+    raw_plotly_config: true
+  - entity: light.office
+    image: /local/home/transparent.png
+    style:
+      border-color: '#e5e5e5'
+      border-style: solid
+      border-width: 0px
+      height: 55px
+      left: 28.25%
+      top: 67%
+      width: 55px
+      opacity: 0%
+    tap_action:
+      action: toggle
+    type: image
+  - conditions:
+      - entity: binary_sensor.middle_garage_occupancy
+        state: 'on'
+    elements:
+      - entity: sensor.ev_charger_1_status
+        tap_action: none
+        hold_action: none
+        double_tap_action: none
+        style:
+          left: 0%
+          top: 0%
+          width: 100%
+          animation: charge-glow 1s linear infinite
+          transform: none
+        filter: brightness(100%)
+        state_image:
+          Charging: https://ha.planetmurphy.com/local/images/Car_Pachy2.png?v=1.3
+        state_filter:
+          Charging: drop-shadow(0px 0px 10px teal)
+        image: https://ha.planetmurphy.com/local/images/Car_Pachy2.png
+        type: image
+    type: conditional
+  - entity: binary_sensor.right_garage_occupancy
+    style:
+      left: 0%
+      top: 0%
+      width: 100%
+      transform: none
+    state_image:
+      'on': https://ha.planetmurphy.com/local/images/Car_Jeep2.png?v=1
+    tap_action: none
+    hold_action: none
+    double_tap_action: none
+    image: https://ha.planetmurphy.com/local/images/transparent_1x1.png
+    type: image
+  - entity: binary_sensor.ev_charger_1_status
+    style:
+      left: 30.5%
+      top: 73%
+    type: state-icon
+  - conditions:
+      - entity: sensor.ev_charger_1_status
+        state: Charging
+    elements:
+      - entity: sensor.ev_charger_1_status
+        style:
+          left: 31.0%
+          top: 79%
+          animation: charge-glow 1s linear infinite
+        icon: mdi:battery-charging-medium
+        type: state-icon
+    type: conditional
+  - entity: sensor.evse1_123_1min
+    style:
+      font-size: 75%
+      left: 31%
+      top: 86%
+      color: RGBA(175,175,175,1)
+    type: state-label
+  - attribute: charging_rate
+    entity: switch.evse1
+    style:
+      font-size: 75%
+      left: 31%
+      top: 83%
+      color: RGBA(175,175,175,1)
+    suffix: A
+    type: state-label
+  - entity: sensor.middle_garage_ultrasonic
+    style:
+      font-size: 75%
+      left: 31%
+      top: 66%
+      color: RGBA(175,175,175,1)
+    type: state-label
+  - entity: sensor.right_garage_ultrasonic
+    style:
+      font-size: 75%
+      left: 46%
+      top: 69%
+      color: RGBA(175,175,175,1)
+    type: state-label
+  - entity: sensor.garage_temperature_temperature
+    style:
+      color: RGBA(0,0,0,0)
+      font-size: 60%
+      left: 39%
+      top: 64%
+    type: state-badge
+  - entity: light.dining_room_lights
+    style:
+      left: 32%
+      top: 45%
+    tap_action:
+      action: toggle
+    hold_action:
+      action: more-info
+    type: state-icon
+  - entity: light.hallway_main_lights
+    style:
+      left: 46%
+      top: 36%
+      transform: translate(-50%, -50%) scale(.7, .7)
+    tap_action:
+      action: toggle
+    hold_action:
+      action: more-info
+    type: state-icon
+  - entity: light.hallway_main_lights
+    style:
+      left: 46%
+      top: 45%
+      transform: translate(-50%, -50%) scale(.7, .7)
+    tap_action:
+      action: toggle
+    hold_action:
+      action: more-info
+    type: state-icon
+  - entity: light.hallway_main_lights
+    style:
+      left: 49%
+      top: 53%
+      transform: translate(-50%, -50%) scale(.7, .7)
+    tap_action:
+      action: toggle
+    hold_action:
+      action: more-info
+    type: state-icon
+  - entity: light.hallway_main_lights
+    style:
+      left: 58%
+      top: 53%
+      transform: translate(-50%, -50%) scale(.7, .7)
+    tap_action:
+      action: toggle
+    hold_action:
+      action: more-info
+    type: state-icon
+  - entity: light.kitchen_main_lights
+    style:
+      left: 26%
+      top: 13%
+      transform: translate(-50%, -50%) scale(.7, .7)
+    tap_action:
+      action: toggle
+    hold_action:
+      action: more-info
+    type: state-icon
+  - entity: light.kitchen_main_lights
+    style:
+      left: 36%
+      top: 13%
+      transform: translate(-50%, -50%) scale(.7, .7)
+    tap_action:
+      action: toggle
+    hold_action:
+      action: more-info
+    type: state-icon
+  - entity: light.kitchen_main_lights
+    style:
+      left: 26%
+      top: 22%
+      transform: translate(-50%, -50%) scale(.7, .7)
+    tap_action:
+      action: toggle
+    hold_action:
+      action: more-info
+    type: state-icon
+  - entity: light.kitchen_main_lights
+    style:
+      left: 36%
+      top: 29%
+      transform: translate(-50%, -50%) scale(.7, .7)
+    tap_action:
+      action: toggle
+    hold_action:
+      action: more-info
+    type: state-icon
+  - entity: light.kitchen_table
+    style:
+      left: 50%
+      top: 18%
+    tap_action:
+      action: toggle
+    hold_action:
+      action: more-info
+    type: state-icon
+  - entity: light.kitchen_island
+    style:
+      left: 34%
+      top: 20%
+    tap_action:
+      action: toggle
+    type: state-icon
+    hold_action:
+      action: more-info
+  - entity: light.family_room_side_table
+    style:
+      left: 62%
+      top: 13%
+    tap_action:
+      action: toggle
+    type: state-icon
+  - entity: light.family_room_main_lights
+    style:
+      left: 73%
+      top: 14%
+      transform: translate(-50%, -50%) scale(.7, .7)
+    tap_action:
+      action: toggle
+    hold_action:
+      action: more-info
+    type: state-icon
+  - entity: light.family_room_main_lights
+    style:
+      left: 83%
+      top: 14%
+      transform: translate(-50%, -50%) scale(.7, .7)
+    tap_action:
+      action: toggle
+    hold_action:
+      action: more-info
+    type: state-icon
+  - entity: light.family_room_main_lights
+    style:
+      left: 63%
+      top: 28%
+      transform: translate(-50%, -50%) scale(.7, .7)
+    tap_action:
+      action: toggle
+    hold_action:
+      action: more-info
+    type: state-icon
+  - entity: light.family_room_main_lights
+    style:
+      left: 73%
+      top: 28%
+      transform: translate(-50%, -50%) scale(.7, .7)
+    tap_action:
+      action: toggle
+    hold_action:
+      action: more-info
+    type: state-icon
+  - entity: light.family_room_main_lights
+    style:
+      left: 83%
+      top: 28%
+      transform: translate(-50%, -50%) scale(.7, .7)
+    tap_action:
+      action: toggle
+    hold_action:
+      action: more-info
+    type: state-icon
+  - entity: light.family_room_accent_lights
+    style:
+      left: 90%
+      top: 18%
+      transform: translate(-50%, -50%) scale(.7, .7)
+    tap_action:
+      action: toggle
+    hold_action:
+      action: more-info
+    type: state-icon
+  - entity: light.family_room_accent_lights
+    style:
+      left: 90%
+      top: 25%
+      transform: translate(-50%, -50%) scale(.7, .7)
+    tap_action:
+      action: toggle
+    hold_action:
+      action: more-info
+    type: state-icon
+  - aspect_ratio: 1/1
+    entity: fan.family_room_fan
+    show_name: false
+    show_state: false
+    size: 100%
+    spin: false
+    state:
+      - spin: true
+        value: 'on'
+    style:
+      left: 73%
+      top: 21%
+      width: 10%
+    styles:
+      card:
+        - background-color: rgb(255,255,255,0)
+        - box-shadow: 0px 0px 0px 0px
+    tap_action:
+      action: more-info
+    type: custom:button-card
+    value: 'off'
+  - entity: light.stairs_main_lights
+    style:
+      left: 65%
+      top: 37%
+    tap_action:
+      action: toggle
+    type: state-icon
+  - entity: switch.playroom_light
+    style:
+      left: 82%
+      top: 45%
+      transform: translate(-50%, -50%) scale(1.5, 1.5)
+    tap_action:
+      action: toggle
+    type: state-icon
+  - conditions:
+      - entity: switch.christmas_tree
+        state_not: unavailable
+    elements:
+      - entity: switch.christmas_tree
+        style:
+          left: 90%
+          top: 45%
+          transform: translate(-50%, -50%) scale(1.5, 1.5)
+        double_tap_action:
+          action: call-service
+          service: script.christmas_tree_change
+        tap_action:
+          action: toggle
+        type: state-icon
+    type: conditional
+  - entity: switch.garage_entry_main_lights
+    style:
+      left: 58%
+      top: 62%
+      transform: translate(-50%, -50%) scale(.7, .7)
+    tap_action:
+      action: toggle
+    type: state-icon
+  - entity: light.front_foyer
+    style:
+      left: 70%
+      top: 63%
+    tap_action:
+      action: toggle
+    hold_action:
+      action: more-info
+    icon: mdi:chandelier
+    type: state-icon
+  - entity: light.porch_fan_light
+    style:
+      left: 26%
+      top: 3%
+      transform: translate(-50%, -50%) scale(.7, .7)
+    tap_action:
+      action: toggle
+    type: state-icon
+  - entity: light.porch_fan_light
+    style:
+      left: 26%
+      top: 3%
+      transform: translate(-50%, -50%) scale(.7, .7)
+    tap_action:
+      action: toggle
+    type: state-icon
+  - aspect_ratio: 1/1
+    color_type: icon
+    entity: fan.porch_fan
+    show_name: false
+    show_state: false
+    size: 100%
+    spin: false
+    state:
+      - spin: true
+        value: 'on'
+    style:
+      left: 35%
+      top: 3%
+      width: 7%
+    styles:
+      card:
+        - background-color: rgb(255,255,255,0)
+        - box-shadow: 0px 0px 0px 0px
+    tap_action:
+      action: more-info
+    type: custom:button-card
+    value: 'off'
+  - entity: weather.karr_daynight
+    style:
+      font-size: 75%
+      left: 9.5%
+      top: 4%
+    type: state-icon
+  - attribute: temperature
+    entity: weather.karr_daynight
+    style:
+      font-size: 100%
+      left: 6%
+      top: 9%
+    suffix: °F
+    type: state-label
+  - attribute: humidity
+    entity: weather.karr_daynight
+    style:
+      font-size: 85%
+      left: 14%
+      top: 9%
+    suffix: '%'
+    type: state-label
+  - style:
+      font-size: x-small
+      left: 9%
+      top: 14%
+    text: HVAC
+    type: custom:text-element
+  - entity: climate.home
+    style:
+      color: RGBA(0,0,0,0)
+      font-size: 80%
+      left: 9%
+      top: 24%
+    title: HVAC Thermostat
+    type: state-badge
+  - attribute: hvac_action
+    entity: climate.home
+    prefix: 'State: '
+    style:
+      font-size: 75%
+      left: 9%
+      top: 29%
+    suffix: ''
+    type: state-label
+  - attribute: current_temperature
+    entity: climate.home
+    prefix: ''
+    style:
+      font-size: 100%
+      left: 6%
+      top: 32%
+    suffix: °F
+    type: state-label
+  - attribute: current_humidity
+    entity: climate.home
+    prefix: ''
+    style:
+      font-size: 85%
+      left: 13%
+      top: 32%
+    suffix: '%'
+    type: state-label
+  - style:
+      font-size: x-small
+      left: 8%
+      top: 39%
+    text: Internet
+    type: custom:text-element
+  - entity: binary_sensor.metronet_gateway
+    style:
+      color: RGBA(0,0,0,0)
+      font-size: 60%
+      left: .75%
+      top: 38.8%
+      transform: scale(.8,.8)
+    title: Internet
+    type: state-badge
+  - entity: sensor.speedtest_ping
+    style:
+      color: RGBA(0,0,0,0)
+      font-size: 60%
+      left: 8%
+      top: 38.8%
+      transform: scale(.8,.8)
+    title: Internet
+    type: state-badge
+  - entity: sensor.speedtest_download
+    style:
+      color: RGBA(0,0,0,0)
+      font-size: 60%
+      left: .75%
+      top: 47%
+      transform: scale(.8,.8)
+    title: Internet
+    type: state-badge
+  - entity: sensor.fast_com_download
+    style:
+      color: RGBA(0,0,0,0)
+      font-size: 60%
+      left: 8%
+      top: 47%
+      transform: scale(.8,.8)
+    title: Internet
+    type: state-badge
+  - entity: media_player.family_room_tv
+    style:
+      left: 60%
+      top: 25%
+      transform: rotate(-0deg) rotateX(-50deg) skewX(-0deg)
+      width: 10%
+    type: custom:now-playing-poster
+  - entity: media_player.kitchen
+    style:
+      left: 48%
+      top: 25%
+      transform: rotate(0deg) rotateX(0deg) skewX(0deg)
+      width: 10%
+    type: custom:now-playing-poster
+  - entity: media_player.kitchen
+    style:
+      color: RGBA(0,0,0,0)
+      left: 53%
+      top: 30%
+    type: state-label
+  - conditions:
+      - entity: alarm_control_panel.home_alarm
+        state: armed
+    elements:
+      - entity: alarm_control_panel.home_alarm
+        style:
+          font-size: 50%
+          left: 68.5%
+          top: 81%
+        type: state-badge
+    type: conditional
+  - conditions:
+      - entity: input_boolean.guest_mode
+        state: 'on'
+    elements:
+      - entity: input_boolean.guest_mode
+        style:
+          font-size: 50%
+          left: 68.5%
+          top: 81%
+        tap_action:
+          action: toggle
+        type: state-badge
+    type: conditional
+  - entity: input_boolean.guest_mode
+    style:
+      font-size: 60%
+      left: 17%
+      top: 68%
+    tap_action:
+      action: toggle
+    type: state-badge
+  - conditions:
+      - entity: sensor.mail_usps_mail
+        state_not: '0'
+    elements:
+      - entity: sensor.mail_usps_mail
+        icon: mdi:mail
+        style:
+          left: 58%
+          top: 97%
+        tap_action:
+          action: navigate
+          navigation_path: /lovelace/mail
+        type: state-icon
+    type: conditional
+  - conditions:
+      - entity: sensor.mail_usps_delivering
+        state_not: '0'
+    elements:
+      - entity: sensor.mail_usps_delivering
+        style:
+          left: 65%
+          top: 97%
+        tap_action:
+          action: navigate
+          navigation_path: /lovelace/mail
+        type: state-icon
+    type: conditional
+  - conditions:
+      - entity: sensor.mail_fedex_delivering
+        state_not: '0'
+    elements:
+      - entity: sensor.mail_usps_delivering
+        style:
+          left: 65%
+          top: 97%
+        tap_action:
+          action: navigate
+          navigation_path: /lovelace/mail
+        type: state-icon
+    type: conditional
+  - conditions:
+      - entity: sensor.mail_ups_delivering
+        state_not: '0'
+    elements:
+      - entity: sensor.mail_usps_delivering
+        style:
+          left: 65%
+          top: 97%
+        tap_action:
+          action: navigate
+          navigation_path: /lovelace/mail
+        type: state-icon
+    type: conditional
+  - conditions:
+      - entity: sensor.mail_amazon_packages
+        state_not: '0'
+    elements:
+      - entity: sensor.mail_usps_delivering
+        style:
+          left: 65%
+          top: 97%
+        tap_action:
+          action: navigate
+          navigation_path: /lovelace/mail
+        type: state-icon
+    type: conditional
+  - entity: media_player.office
+    style:
+      left: 84%
+      top: 67%
+      width: 10%
+    type: custom:now-playing-poster
+  - entity: media_player.office
+    style:
+      color: RGBA(0,0,0,0)
+      left: 84%
+      top: 67%
+    type: state-label
+  - entity: media_player.office
+    style:
+      left: 93%
+      top: 67%
+      transform: rotate(90deg) rotateX(70deg) skewX(-0deg)
+    type: custom:now-playing-poster
+  - conditions:
+      - entity: media_player.xbox2
+        state: 'on'
+    elements:
+      - entity: media_player.xbox_2
+        style:
+          left: 73%
+          top: 92%
+        type: state-icon
+    type: conditional
+  - conditions:
+      - entity: sensor.basement_tv_electrical_measurement
+        state_not: '0.0'
+    elements:
+      - entity: binary_sensor.xbox
+        style:
+          font-size: 60%
+          left: 73%
+          top: 96%
+        type: state-icon
+      - entity: sensor.basement_tv_electrical_measurement
+        style:
+          font-size: 60%
+          left: 73%
+          top: 99%
+        type: state-label
+    type: conditional
+  - entity: person.patrick
+    style:
+      font-size: 65%
+      left: 83%
+      top: 96%
+      color: RGBA(0,0,0,0)
+    type: state-badge
+  - entity: person.charissa
+    style:
+      font-size: 65%
+      left: 93%
+      top: 96%
+      color: RGBA(0,0,0,0)
+    type: state-badge
+  - conditions:
+      - entity: group.family_extended
+        state: home
+    elements:
+      - entity: group.family_extended
+        icon: mdi:account
+        style:
+          font-size: 60%
+          left: 98%
+          top: 98%
+        type: state-icon
+    type: conditional
+  - conditions:
+      - entity: binary_sensor.kitchen_motion_occupancy
+        state: 'on'
+    elements:
+      - entity: binary_sensor.kitchen_motion_occupancy
+        icon: mdi:motion-sensor
+        style:
+          left: 43%
+          top: 28%
+          width: 5%
+        type: state-icon
+    type: conditional
+  - conditions:
+      - entity: binary_sensor.basement_occupancy
+        state: 'on'
+    elements:
+      - entity: binary_sensor.basement_occupancy
+        icon: mdi:motion-sensor
+        style:
+          '--paper-item-icon-color': gold
+          left: 61%
+          top: 46%
+          width: 5%
+        type: state-icon
+    type: conditional
+  - conditions:
+      - entity: binary_sensor.mainfloor_water_leak_ias_zone
+        state: 'on'
+    elements:
+      - entity: binary_sensor.mainfloor_water_leak_ias_zone
+        icon: mdi:water-alert
+        style:
+          transform: translate(-50%, -50%) scale(1.5, 1.5)
+          left: 55%
+          top: 44%
+          '--paper-item-icon-color': red
+        type: state-icon
+    type: conditional
+  - entity: binary_sensor.front_door
+    icon: mdi:door
+    style:
+      left: 70%
+      top: 72%
+    type: state-icon
+  - entity: binary_sensor.back_door
+    icon: mdi:door
+    style:
+      left: 49.5%
+      top: 5%
+    type: state-icon
+  - entity: binary_sensor.garage_entry_door
+    icon: mdi:door
+    style:
+      left: 53%
+      top: 62.5%
+    type: state-icon
+  - entity: cover.middle_garage_door
+    hold_action:
+      action: more-info
+    name: Middle Garage
+    style:
+      left: 30%
+      top: 93%
+    tap_action:
+      action: more-info
+      service: cover.toggle
+      service_data:
+        entity_id: cover.middle_garage_door
+    type: state-icon
+  - entity: cover.right_garage_door
+    hold_action:
+      action: more-info
+    name: Right Garage
+    style:
+      left: 46%
+      top: 93%
+    tap_action:
+      action: more-info
+      service: cover.toggle
+      service_data:
+        entity_id: cover.right_garage_door
+    type: state-icon
+  - entity: binary_sensor.driveway_motion_detected
+    icon: mdi:cctv
+    style:
+      left: 54%
+      top: 98%
+      transform: translate(-50%, -50%) scale(.8, .8)
+    tap_action:
+      action: more-info
+    hold_action:
+      action: more-info
+    type: state-icon
+  - camera_image: camera.driveway_proxy
+    entity: camera.driveway
+    show_name: false
+    show_state: false
+    tap_action:
+      action: navigate
+      navigation_path: /lovelace/cctv
+    style:
+      left: 13%
+      top: 89%
+      width: 25%
+      border: 1.5px solid cornflowerblue
+      border-radius: 10%
+    type: image
+  - camera_image: camera.front_door_crop
+    entity: camera.front_door_crop
+    show_name: false
+    show_state: false
+    tap_action:
+      action: navigate
+      navigation_path: /lovelace/cctv
+    style:
+      left: 65%
+      top: 84%
+      width: 18%
+      border: 1.5px solid cornflowerblue
+      border-radius: 10%
+    type: image
+  - entity: light.office
+    style:
+      left: 83%
+      top: 70%
+    tap_action:
+      action: toggle
+    hold_action:
+      action: more-info
+    icon: mdi:ceiling-fan-light
+    type: state-icon
+  - entity: fan.office
+    style:
+      left: 89%
+      top: 70%
+    tap_action:
+      action: toggle
+    hold_action:
+      action: more-info
+    icon: mdi:fan
+    type: state-icon
+  - conditions:
+      - entity: sensor.apollo_mtr_1_ChangeMe_zone_1_all_target_count
+        state: '1'
+    elements:
+      - entity: sensor.apollo_mtr_1_ChangeMe_zone_1_all_target_count
+        icon: mdi:motion-sensor
+        style:
+          left: 81%
+          top: 78%
+        type: state-icon
+    type: conditional
+  - conditions:
+      - entity: sensor.apollo_mtr_1_ChangeMe_zone_1_all_target_count
+        state: '99'
+    elements:
+      - entity: sensor.apollo_mtr_1_ChangeMe_zone_1_all_target_count
+        icon: mdi:seat-recline-normal
+        style:
+          left: 89%
+          top: 65%
+        type: state-icon
+    type: conditional
+image: /local/images/House_0720024.jpg?v=2
+type: picture-elements
