@@ -1,0 +1,59 @@
+# Source: https://github.com/pkissling/clock-weather-card
+# Clock and Weather Card using card_mod
+
+type: custom:clock-weather-card
+entity: weather.pirateweather
+hide_forecast_section: true
+weather_icon_type: fill
+hide_date: true
+date_pattern: cccc, LLL m
+time_pattern: h:mm
+time: null
+card_mod:
+  style: |
+    ha-card {
+      # background-color: rgba(0, 0, 0, 0) !important;
+      background-color: transparent !important;
+      border: 0px !important;
+      padding: 0px;
+      margin-top: 0px;
+      margin-bottom: -20px;
+      padding-bottom: -20px;
+      text-shadow: 1px 1px 2px black;
+      #--bar-height: 1.3em !important;
+      #background: #001030;
+    }
+    clock-weather-card-today {
+      padding: -20px;
+      margin-bottom: -10px;
+      font-weight: 600; 
+    }
+    clock-weather-card-today-right {
+      justify-content: flex-start !important;
+      height: 10em;
+      margin-top: -30px;
+      background: none;
+    }
+    clock-weather-card-today-right-wrap-top {
+      font-size: 26px !important;
+      #font-family: Moonrising;
+      margin-top: 1px;
+      padding-bottom: 10px;
+      # color: rgb(160,160,210);
+      # letter-spacing: 2px;
+    }
+    # clock-weather-card-today-right-wrap-top {
+    #   display: none !important;
+    # }
+    clock-weather-card-today-left {
+      margin-top: -35px;
+      font-size: 50px !important;
+
+    }
+    clock-weather-card-today-right-wrap-center {
+      font-size: 80px !important;
+      font: bolder;
+      #font-family: SairaCondensed-Medium;
+      # font-variant-caps: all-small-caps;
+      # color: #CCCCFF;
+    }
