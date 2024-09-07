@@ -1,0 +1,62 @@
+# Source: https://github.com/FamousWolf/week-planner-card
+# 5 Day Calendar for portriat mode dashboard
+type: custom:bootstrap-grid-card
+class: container-fluid g-5
+cards:
+  - type: row
+    class: row
+    cards:
+      - type: custom:week-planner-card
+        compact: false
+        calendars:
+          - entity: calendar.personalgoogle1
+            color: '#e6c229'
+          - entity: calendar.personalgoogle2
+            color: '#1a8fe3'
+          - entity: calendar.google_school
+            color: '#d11149'
+          - entity: calendar.district_302
+            color: '#d11149'
+          - entity: calendar.contacts
+            color: '#0000FF'
+          - entity: calendar.holidays_in_united_states
+            color: '#0099aa'
+          - entity: calendar.school
+            color: '#000000'
+          - entity: calendar.family
+            color: '#000000'
+        days: 5
+        weather:
+          entity: weather.pirateweather
+          showTemperature: true
+          showLowTemperature: true
+        texts:
+          today: ''
+          tomorrow: ''
+          yesterday: ''
+          fullDay: ''
+        noCardBackground: true
+        eventBackground: rgba(0, 0, 0, .5)
+        locationLink: https://www.openstreetmap.org/search?query=
+        locale: us
+        timeFormat: h:mm a
+        card_mod:
+          style: |
+            ha-card {
+              background-color: rgba(0, 0, 0, .6) !important;
+              border: 0px !important;
+              margin-top: -20px; 
+              margin-bottom: -20px;
+              margin-left: -15px;
+              margin-right: -15px;
+              font-size: 100% !important;
+              text-shadow: 4px 4px 16px black;
+              }
+              .container .day {
+                width: calc((100% - 4 * var(--days-spacing)) / 5) !important;                        
+                }
+              .today .date .number { /* Today's date number mod */
+                  border-radius: 50%; /* This creates the circular shape */
+                  border: 2px solid #ffffff; /* Add a border to create the outline */
+                  background-color: #3289a8; /* Make the inside transparent */
+                  }                  
