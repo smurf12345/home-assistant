@@ -1,0 +1,32 @@
+# Source: https://github.com/pmongloid/flipdown-timer-card
+# Timer card used in conjunction with Alexa timer.  Timer pops up based on condition that the timer is running.
+
+type: conditional
+conditions:
+  - condition: state
+    entity: sensor.kitchen_next_timer
+    state_not: unknown
+card:
+  type: custom:flipdown-timer-card
+  entity: sensor.kitchen_next_timer
+  show_hour: false
+  show_title: false
+  show_header: false
+  duration: '00:00'
+  styles:
+    rotor:
+      width: 70px
+      height: 100px
+      fontsize: 7.5rem
+  show_error: false
+  card_mod:
+    style: |
+      ha-card {
+        # background-color: rgba(0, 0, 0, 0) !important;
+        background-color: transparent !important;
+        border: 0px !important;
+        padding: 0px;
+        margin-top: -15px;
+        margin-bottom: 0px;
+        text-shadow: 1px 1px 2px black;
+      }
