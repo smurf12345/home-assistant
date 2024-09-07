@@ -1,5 +1,6 @@
 # Source: https://github.com/j-a-n/lovelace-wallpanel
 # Wallpanel screensaver - Digital Art
+# Code below is placed in the raw lovelace yaml at the very top above "views:"
 # Setup with multiple profiles to rotate between local file pictures and different categories of unsplash photos
 # Create an input_select.wallpanel_profile entity in home-assistant and define the same profiles configured in wallpanel below.
 # Also setup a default option in the input_select entity that doesn't match any profile to use the image_url defined under wallpanel.
