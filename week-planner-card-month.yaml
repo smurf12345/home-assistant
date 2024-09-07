@@ -1,0 +1,89 @@
+# Source: https://github.com/FamousWolf/week-planner-card
+# Month Calendar View
+
+type: custom:bootstrap-grid-card
+class: container-fluid g-0
+cards:
+  - type: row
+    class: row
+    cards:
+      - type: custom:week-planner-card
+        compact: false
+        class: col-24
+        calendars:
+          - entity: calendar.personalgoogle1
+            color: '#e6c229'
+          - entity: calendar.personalgoogle2
+            color: '#1a8fe3'
+          - entity: calendar.googleschool
+            color: '#d11149'
+          - entity: calendar.district_302
+            color: '#d11149'
+          - entity: calendar.contacts
+            color: '#0000FF'
+          - entity: calendar.holidays_in_united_states
+            color: '#0099aa'
+          - entity: calendar.school
+            color: '#000000'
+        days: 35
+        startingDay: monday
+        texts:
+          today: ''
+          tomorrow: ''
+          yesterday: ''
+          fullDay: ''
+          wednesday: Wed
+        weather:
+          entity: weather.pirateweather
+          showTemperature: true
+          showLowTemperature: false
+        noCardBackground: false
+        eventBackground: rgba(0, 0, 0, .5)
+        locationLink: https://www.openstreetmap.org/search?query=
+        locale: us
+        timeFormat: h:mma
+        card_mod:
+          style: |
+            ha-card {
+              background-color: rgba(0, 0, 0, .0) !important;
+              border: 0px !important;
+              border-style: solid !important;
+              border-color: red !important;
+              margin-top: -20px; 
+              margin-bottom: -20px;
+              margin-left: 0px;
+              margin-right: 0px;
+              font-size: 100% !important;
+            }
+            .container .day {
+              width: calc((100% - 6 * var(--days-spacing)) / 7) !important;
+            }
+            # .container .day {
+            #   display: flex;
+            #   flex-direction: column;
+            #   align-items: center;
+            #   justify-content: center;
+            # }
+            .container .day {
+              # display: flex; // Adjusts events background to auto adjust width
+              flex-direction: column;
+              align-items: center;
+              justify-content: left;
+            }
+            # div.container div.day{
+            #   background-color: rgba(0, 0, 0, .1) !important;
+            #   border: 0px !important;
+            #   border-style: solid !important;
+            #   border-color: gray !important;
+            # }
+            .event.past {
+              opacity: 0.3;
+            }
+            .today .date .number {
+              border-radius: 50%; /* This creates the circular shape */
+              border: 2px solid #ffffff; /* Add a border to create the outline */
+              background-color: #3289a8; /* Make the inside transparent */
+              }  
+            # .container .day:nth-child(n+8) .date .text {
+            #   # display: none;
+            # }
