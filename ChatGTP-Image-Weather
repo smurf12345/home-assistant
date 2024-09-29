@@ -1,0 +1,40 @@
+### YAML Automation
+alias: ChatGTP Generate Image Weather
+description: ""
+trigger:
+  - platform: time
+    at: "06:00:00"
+condition: []
+action:
+  - action: openai_conversation.generate_image
+    data:
+      quality: hd
+      style: vivid
+      size: 1024x1792
+      config_entry: 01J8WKQ11T7FA7HN49EP140ZQ7
+      prompt: >-
+        Create digital wall art image that reflects todays weather {{
+        states('weather.pirateweather') }} with a high of {{
+        states('sensor.pirateweather_daytime_high_temperature_0d') }}°F and low
+        of {{ states('sensor.pirateweather_overnight_low_temperature_0d') }}°F,
+        considering the current time of year and season. The scene should
+        feature a happy, fun-loving, ultra-realistic, anamorphic Axolotl which
+        should be integrated into an environment that visually represents the
+        current weather conditions and seasonal elements. The style should be
+        vivid and lifelike, with a vibrant and joyful atmosphere. {% set
+        start_time = state_attr('calendar.school', 'start_time') %} {% if
+        start_time and as_timestamp(start_time) | timestamp_custom('%Y-%m-%d')
+        == now().strftime('%Y-%m-%d') %}
+          Add elements that depict school classes for 2 kids, but do not depict the kids. School Schedule: {{ state_attr('calendar.school', 'message') }}
+        {% else %}
+          Add elements of this calendar event: {{ state_attr('calendar.charissa_planetmurphy_com', 'message') }}
+        {% endif %}
+    response_variable: generated_image
+  - action: downloader.download_file
+    metadata: {}
+    data:
+      url: "{{generated_image.url}}"
+      filename: weather_{{ now().strftime('%Y-%m-%d_%H-%M-%S') }}.png
+      subdir: openai/current
+      overwrite: true
+mode: single
