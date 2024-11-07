@@ -1,0 +1,67 @@
+// For use with MeatPi WiCAN OBD2 for a 2016-2025 Chrysler Pacifica Hybrid
+{
+  "cars": [
+    {
+      "car_model": "Chrysler: Pacifica Hybrid",
+      "init": "ATSP6;",
+      "pids": [
+
+        {
+          "pid": "0105",
+          "parameters": [
+            {
+              "name": "Coolant",
+              "expression": "(B3-40) * 1.8 + 32",
+              "unit": "°F",
+              "class": "temperature"
+            }
+          ]
+        },
+        {
+          "pid": "012F",
+          "parameters": [
+            {
+              "name": "FuelLevel",
+              "expression": "B3*(1 / 2.55)",
+              "unit": "%",
+              "class": "none"
+            }
+          ]
+        },
+        {
+          "pid": "01A6",
+          "parameters": [
+            {
+              "name": "Odometer",
+              "expression": "[B3:B6]*.0621371",
+              "unit": "mi",
+              "class": "distance"
+            }
+          ]
+        },
+        {
+          "pid": "015B",
+          "parameters": [
+            {
+              "name": "HybridBatteryPackRemaining",
+              "expression": "B3 * (1 / 2.55)",
+              "unit": "%",
+              "class": "battery"
+            }
+          ]
+        },
+        {
+            "pid": "0146",
+            "parameters": [
+              {
+                "name": "AmbientTemperature",
+                "expression": "(B3 - 40) * 1.8 + 32",
+                "unit": "°F",
+                "class": "temperature"
+              }
+            ]
+          }          
+      ]
+    }
+  ]
+}
