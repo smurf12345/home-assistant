@@ -1,11 +1,9 @@
-// For use with MeatPi WiCAN OBD2 for a 2016-2025 Chrysler Pacifica Hybrid
 {
   "cars": [
     {
       "car_model": "Chrysler: Pacifica Hybrid",
       "init": "ATSP6;",
       "pids": [
-
         {
           "pid": "0105",
           "parameters": [
@@ -21,7 +19,7 @@
           "pid": "012F",
           "parameters": [
             {
-              "name": "FuelLevel",
+              "name": "Fuel Level",
               "expression": "B3*(1 / 2.55)",
               "unit": "%",
               "class": "none"
@@ -43,7 +41,7 @@
           "pid": "015B",
           "parameters": [
             {
-              "name": "HybridBatteryPackRemaining",
+              "name": "Hybrid Battery Pack Remaining",
               "expression": "B3 * (1 / 2.55)",
               "unit": "%",
               "class": "battery"
@@ -51,16 +49,161 @@
           ]
         },
         {
-            "pid": "0146",
+          "pid": "0146",
+          "parameters": [
+            {
+              "name": "Ambient Temperature",
+              "expression": "(B3 - 40) * 1.8 + 32",
+              "unit": "°F",
+              "class": "temperature"
+            }
+          ]
+        },
+        {
+          "pid": "019A2",
+          "parameters": [
+            {
+              "name": "HV Battery Power",
+              "expression": "(B7 * 256 + B8) * 0.05",
+              "unit": "hp",
+              "class": "power"
+            }
+          ]
+        },
+        {
+          "pid": "22A021",
+          "parameters": [
+            {
+              "name": "Battery Cooling Inlet Temp",
+              "expression": "(B3 - 40) * 1.8 + 32",
+              "unit": "°F",
+              "class": "temperature"
+            }
+          ]
+        },
+        {
+          "pid": "22A0212",
+          "parameters": [
+            {
+              "name": "Battery Cooling Outlet Temp",
+              "expression": "(B3 - 40) * 1.8 + 32",
+              "unit": "°F",
+              "class": "temperature"
+            }
+          ]
+        },
+        {
+          "pid": "22A0122",
+          "parameters": [
+            {
+              "name": "HV Battery Current",
+              "expression": "(B4 * 256 + B5) * 0.1",
+              "unit": "A",
+              "class": "current"
+            }
+          ]
+        },
+        {
+          "pid": "22A0664",
+          "parameters": [
+            {
+              "name": "BPCM Module Temp Sensor 1",
+              "expression": "((B3 - 174) * 1.8) + 32",
+              "unit": "°F",
+              "class": "temperature"
+            },
+            {
+              "name": "BPCM Module Temp Sensor 2",
+              "expression": "((B4 - 190) * 1.8) + 32",
+              "unit": "°F",
+              "class": "temperature"
+            },
+            {
+              "name": "BPCM Module Temp Sensor 3",
+              "expression": "((B5 - 190) * 1.8) + 32",
+              "unit": "°F",
+              "class": "temperature"
+            },
+            {
+              "name": "BPCM Module Temp Sensor 4",
+              "expression": "((B6 - 190) * 1.8) + 32",
+              "unit": "°F",
+              "class": "temperature"
+            },
+            {
+              "name": "BPCM Module Temp Sensor 5",
+              "expression": "((B7 - 190) * 1.8) + 32",
+              "unit": "°F",
+              "class": "temperature"
+            },
+            {
+              "name": "BPCM Module Temp Sensor 6",
+              "expression": "((B8 - 190) * 1.8) + 32",
+              "unit": "°F",
+              "class": "temperature"
+            },
+            {
+              "name": "BPCM Module Temp Sensor 7",
+              "expression": "((B9 - 190) * 1.8) + 32",
+              "unit": "°F",
+              "class": "temperature"
+            },
+            {
+              "name": "BPCM Module Temp Sensor 8",
+              "expression": "((B10 - 190) * 1.8) + 32",
+              "unit": "°F",
+              "class": "temperature"
+            },
+            {
+              "name": "BPCM Module Temp Sensor 9",
+              "expression": "((B11 - 190) * 1.8) + 32",
+              "unit": "°F",
+              "class": "temperature"
+            },
+            {
+              "name": "BPCM Module Temp Sensor 10",
+              "expression": "((B12 - 190) * 1.8) + 32",
+              "unit": "°F",
+              "class": "temperature"
+            },
+            {
+              "name": "BPCM Module Temp Sensor 11",
+              "expression": "((B13 - 190) * 1.8) + 32",
+              "unit": "°F",
+              "class": "temperature"
+            },
+            {
+              "name": "BPCM Module Temp Sensor 12",
+              "expression": "((B14 - 174) * 1.8) + 32",
+              "unit": "°F",
+              "class": "temperature"
+            }
+          ]
+        },
+        {
+          "pid": "0130",
+          "parameters": [
+            {
+              "name": "Warm-Ups Since Code Cleared",
+              "pid_init": "AT SH 7E0; AT CRA 7E8;",
+              "expression": "B3",
+              "unit": "count",
+              "class": "diagnostic"
+            }
+          ]
+        },
+        {
+            "pid": "0131",
             "parameters": [
               {
-                "name": "AmbientTemperature",
-                "expression": "(B3 - 40) * 1.8 + 32",
-                "unit": "°F",
-                "class": "temperature"
+                "name": "Distance Since Codes Cleared Miles",
+                "pid_init": "ATCRA7EC;",
+                "expression": "(B3 * 256 + B4) * 0.621371",
+                "unit": "miles",
+                "class": "distance"
               }
             ]
-          }          
+          }
       ]
     }
   ]
