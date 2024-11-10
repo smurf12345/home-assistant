@@ -2,7 +2,7 @@
   "cars": [
     {
       "car_model": "Chrysler: Pacifica Hybrid",
-      "init": "ATSP6;",
+      "init": "ATD0;ATE0;ATH1;ATSP6;ATE0;ATH1;ATM0;ATS0;ATAT1;ATAL;ATST96;",
       "pids": [
         {
           "pid": "0105",
@@ -70,28 +70,30 @@
             }
           ]
         },
-        {
-          "pid": "22A021",
-          "parameters": [
-            {
-              "name": "Battery Cooling Inlet Temp",
-              "expression": "(B3 - 40) * 1.8 + 32",
-              "unit": "°F",
-              "class": "temperature"
-            }
-          ]
-        },
-        {
-          "pid": "22A0212",
-          "parameters": [
-            {
-              "name": "Battery Cooling Outlet Temp",
-              "expression": "(B3 - 40) * 1.8 + 32",
-              "unit": "°F",
-              "class": "temperature"
-            }
-          ]
-        },
+        // {
+        //   "pid": "22A021",
+        //   "pid_init": "ATSH7E7;",
+        //   "parameters": [
+        //     {
+        //       "name": "Battery Cooling Inlet Temp",
+        //       "expression": "(B3-40) * 1.8 + 32",
+        //       "unit": "°F",
+        //       "class": "temperature"
+        //     }
+        //   ]
+        // },
+        // {
+        //   "pid": "22A0212",
+        //   "pid_init": "ATSH7E7;",
+        //   "parameters": [
+        //     {
+        //       "name": "Battery Cooling Outlet Temp",
+        //       "expression": "(B4-40) * 1.8 + 32",
+        //       "unit": "°F",
+        //       "class": "temperature"
+        //     }
+        //   ]
+        // },
         {
           "pid": "22A0122",
           "parameters": [
@@ -105,78 +107,79 @@
         },
         {
           "pid": "22A0664",
+          "pid_init": "ATSH7E7;",
           "parameters": [
             {
-              "name": "BPCM Module Temp Sensor 1",
-              "expression": "((B3 - 174) * 1.8) + 32",
-              "unit": "°F",
-              "class": "temperature"
+                "name": "BPCM Module Temp Sensor 01",
+                "expression": "(B5 - 40) * 1.8 + 32",
+                "unit": "°F",
+                "class": "temperature"
             },
             {
-              "name": "BPCM Module Temp Sensor 2",
-              "expression": "((B4 - 190) * 1.8) + 32",
-              "unit": "°F",
-              "class": "temperature"
+                "name": "BPCM Module Temp Sensor 02",
+                "expression": "(B6 - 40) * 1.8 + 32",
+                "unit": "°F",
+                "class": "temperature"
             },
             {
-              "name": "BPCM Module Temp Sensor 3",
-              "expression": "((B5 - 190) * 1.8) + 32",
-              "unit": "°F",
-              "class": "temperature"
+                "name": "BPCM Module Temp Sensor 03",
+                "expression": "(B7 - 40) * 1.8 + 32",
+                "unit": "°F",
+                "class": "temperature"
             },
             {
-              "name": "BPCM Module Temp Sensor 4",
-              "expression": "((B6 - 190) * 1.8) + 32",
-              "unit": "°F",
-              "class": "temperature"
+                "name": "BPCM Module Temp Sensor 04",
+                "expression": "(B9 - 40) * 1.8 + 32",
+                "unit": "°F",
+                "class": "temperature"
             },
             {
-              "name": "BPCM Module Temp Sensor 5",
-              "expression": "((B7 - 190) * 1.8) + 32",
-              "unit": "°F",
-              "class": "temperature"
+                "name": "BPCM Module Temp Sensor 05",
+                "expression": "(B10 - 40) * 1.8 + 32",
+                "unit": "°F",
+                "class": "temperature"
             },
             {
-              "name": "BPCM Module Temp Sensor 6",
-              "expression": "((B8 - 190) * 1.8) + 32",
-              "unit": "°F",
-              "class": "temperature"
+                "name": "BPCM Module Temp Sensor 06",
+                "expression": "(B11 - 40) * 1.8 + 32",
+                "unit": "°F",
+                "class": "temperature"
             },
             {
-              "name": "BPCM Module Temp Sensor 7",
-              "expression": "((B9 - 190) * 1.8) + 32",
-              "unit": "°F",
-              "class": "temperature"
+                "name": "BPCM Module Temp Sensor 07",
+                "expression": "(B12 - 40) * 1.8 + 32",
+                "unit": "°F",
+                "class": "temperature"
             },
             {
-              "name": "BPCM Module Temp Sensor 8",
-              "expression": "((B10 - 190) * 1.8) + 32",
-              "unit": "°F",
-              "class": "temperature"
+                "name": "BPCM Module Temp Sensor 08",
+                "expression": "(B13 - 40) * 1.8 + 32",
+                "unit": "°F",
+                "class": "temperature"
             },
             {
-              "name": "BPCM Module Temp Sensor 9",
-              "expression": "((B11 - 190) * 1.8) + 32",
-              "unit": "°F",
-              "class": "temperature"
+                "name": "BPCM Module Temp Sensor 09",
+                "expression": "(B14 - 40) * 1.8 + 32",
+                "unit": "°F",
+                "class": "temperature"
             },
             {
-              "name": "BPCM Module Temp Sensor 10",
-              "expression": "((B12 - 190) * 1.8) + 32",
-              "unit": "°F",
-              "class": "temperature"
+                "name": "BPCM Module Temp Sensor 10",
+                "expression": "(B15 - 40) * 1.8 + 32",
+                "unit": "°F",
+                "class": "temperature"
             },
             {
-              "name": "BPCM Module Temp Sensor 11",
-              "expression": "((B13 - 190) * 1.8) + 32",
-              "unit": "°F",
-              "class": "temperature"
+                "name": "BPCM Module Temp Sensor 11",
+                "expression": "(B17 - 40) * 1.8 + 32",
+                "unit": "°F",
+                "class": "temperature"
             },
             {
-              "name": "BPCM Module Temp Sensor 12",
-              "expression": "((B14 - 174) * 1.8) + 32",
-              "unit": "°F",
-              "class": "temperature"
+                "name": "BPCM Module Temp Sensor 12",
+                "expression": "(B18 - 40) * 1.8 + 32",
+                "unit": "°F",
+                "class": "temperature"
             }
           ]
         },
@@ -186,7 +189,7 @@
             {
               "name": "Warm-Ups Since Code Cleared",
               "pid_init": "AT SH 7E0; AT CRA 7E8;",
-              "expression": "B3",
+              "expression": "B1",
               "unit": "count",
               "class": "diagnostic"
             }
