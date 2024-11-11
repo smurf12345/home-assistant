@@ -170,7 +170,7 @@
             "parameters": [
               {
                 "name": "Battery Cooling Inlet Temp",
-                "expression": "(B3-50) * 1.8 + 32",
+                "expression": "(B5-50) * 1.8 + 32",
                 "unit": "°F",
                 "class": "temperature"
               }
@@ -182,7 +182,7 @@
             "parameters": [
               {
                 "name": "Battery Cooling Outlet Temp",
-                "expression": "(B5-50) * 1.8 + 32",
+                "expression": "(B7-50) * 1.8 + 32",
                 "unit": "°F",
                 "class": "temperature"
               }
