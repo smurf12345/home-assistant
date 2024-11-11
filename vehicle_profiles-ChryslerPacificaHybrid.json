@@ -2,10 +2,11 @@
     "cars": [
       {
         "car_model": "Chrysler: Pacifica Hybrid",
-        "init": "ATD0;ATE0;ATH1;ATSP6;ATE0;ATH1;ATM0;ATS0;ATAT1;ATAL;ATST96;",
+        "init": "ATH1;ATAT1;ATST96;ATSP6;",
         "pids": [
           {
             "pid": "0105",
+            "pid_init": "ATSH7DF",
             "parameters": [
               {
                 "name": "Coolant",
@@ -17,6 +18,7 @@
           },
           {
             "pid": "012F",
+            "pid_init": "ATSH7DF",
             "parameters": [
               {
                 "name": "Fuel Level",
@@ -28,6 +30,7 @@
           },
           {
             "pid": "01A6",
+            "pid_init": "ATSH7DF",
             "parameters": [
               {
                 "name": "Odometer",
@@ -39,6 +42,7 @@
           },
           {
             "pid": "015B",
+            "pid_init": "ATSH7DF",
             "parameters": [
               {
                 "name": "Hybrid Battery Pack Remaining",
@@ -50,12 +54,35 @@
           },
           {
             "pid": "0146",
+            "pid_init": "ATSH7DF",
             "parameters": [
               {
                 "name": "Ambient Temperature",
                 "expression": "(B3 - 40) * 1.8 + 32",
                 "unit": "°F",
                 "class": "temperature"
+              }
+            ]
+          },
+          {
+            "pid": "019A2",
+            "parameters": [
+              {
+                "name": "HV Battery Power", 
+                "expression": "(B7 * 256 + B8) * 0.05",
+                "unit": "hp",
+                "class": "power"
+              }
+            ]
+          },
+          {
+            "pid": "22A0122",
+            "parameters": [
+              {
+                "name": "HV Battery Current",
+                "expression": "(B4 * 256 + B5) * 0.1",
+                "unit": "A",
+                "class": "current"
               }
             ]
           },
@@ -143,7 +170,7 @@
             "parameters": [
               {
                 "name": "Battery Cooling Inlet Temp",
-                "expression": "(B3-50) * 1.8 + 32",  // ????
+                "expression": "(B3-50) * 1.8 + 32",
                 "unit": "°F",
                 "class": "temperature"
               }
@@ -201,7 +228,7 @@
             "parameters": [
               {
                 "name": "Warm-Ups Since Code Cleared",
-                "pid_init": "AT SH 7E0; AT CRA 7E8;",
+                "pid_init": "ATCRA7EC;",
                 "expression": "B1",
                 "unit": "count",
                 "class": "diagnostic"
