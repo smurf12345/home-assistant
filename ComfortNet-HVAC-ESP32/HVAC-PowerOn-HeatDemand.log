@@ -1,6 +1,7 @@
 ####
 # Logs from Amana HVAC Controller
 # Power/boot of controller/furance and call for heat
+# Thermostat set to Heat mode, Temperature set point 69F, Fan On (Continuous 25%).
 ####
 [13:40:48][W][uart:378]: Message length mismatch. Expected at least 139 bytes.
 [13:40:49][D][uart:357]: Dest | Src | Subnet | Meth | Params | SrcNode | MsgType | PktNum | Len | Payload HEX             | Checksum
