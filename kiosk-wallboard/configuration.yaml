@@ -1,0 +1,80 @@
+# Add yaml snipped to home-assistant configuration.yaml to create entities
+mqtt:
+  button:
+    # Monitor Power Commands
+    - name: "Wallboard Monitor Off (DPMS)"
+      unique_id: wallboard_monitor_off
+      command_topic: "wallboard/monitor/power"
+      payload_press: "off"
+      icon: "mdi:monitor-off"
+
+    - name: "Wallboard Monitor On (DPMS)"
+      unique_id: wallboard_monitor_on
+      command_topic: "wallboard/monitor/power"
+      payload_press: "on"
+      icon: "mdi:monitor"
+
+    # Monitor Brightness
+    - name: "Wallboard Brightness 5%"
+      unique_id: wallboard_brightness_5
+      command_topic: "wallboard/monitor/brightness"
+      payload_press: "5"
+      icon: "mdi:brightness-2"
+
+    - name: "Wallboard Brightness 75%"
+      unique_id: wallboard_brightness_75
+      command_topic: "wallboard/monitor/brightness"
+      payload_press: "75"
+      icon: "mdi:brightness-6"
+
+    # Monitor Volume
+    - name: "Wallboard Volume 50%"
+      unique_id: wallboard_volume_50
+      command_topic: "wallboard/monitor/volume"
+      payload_press: "50"
+      icon: "mdi:volume-medium"
+
+    # CPU Commands
+    - name: "Wallboard Suspend"
+      unique_id: wallboard_suspend
+      command_topic: "wallboard/cpu/command"
+      payload_press: "suspend"
+      icon: "mdi:sleep"
+
+    - name: "Wallboard Reboot"
+      unique_id: wallboard_reboot
+      command_topic: "wallboard/cpu/command"
+      payload_press: "reboot"
+      icon: "mdi:restart"
+
+  number:
+    - name: "Wallboard Volume"
+      unique_id: wallboard_volume
+      command_topic: "wallboard/monitor/volume"
+      state_topic: "wallboard/monitor/volume/state"
+      min: 0
+      max: 100
+      step: 1
+      icon: "mdi:volume-high"
+
+    - name: "Wallboard Brightness"
+      unique_id: wallboard_brightness
+      command_topic: "wallboard/monitor/brightness"
+      state_topic: "wallboard/monitor/brightness/state"
+      min: 0
+      max: 100
+      step: 1
+      icon: "mdi:brightness-6"
+
+  select:
+    - name: "Wallboard Color Preset"
+      unique_id: wallboard_color_preset
+      command_topic: "wallboard/monitor/color_preset"
+      state_topic: "wallboard/monitor/color_preset/state"
+      options:
+        - "5000 K"
+        - "6500 K"
+        - "7500 K"
+        - "9300 K"
+        - "User 1"
+      icon: "mdi:palette"
