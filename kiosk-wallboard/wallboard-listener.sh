@@ -103,11 +103,11 @@ do
         case "$payload" in
           "suspend")
             echo "[INFO] Command: Suspending the system"
-            sudo systemctl suspend -i
+            sudo systemctl suspend
             ;;
           "reboot")
             echo "[INFO] Command: Rebooting the system"
-            sudo systemctl reboot -i
+            sudo systemctl reboot
             ;;
           *)
             echo "[WARN] Unknown CPU command: $payload"
