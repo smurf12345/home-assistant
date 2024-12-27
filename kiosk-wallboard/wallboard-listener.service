@@ -1,0 +1,28 @@
+# Create file /etc/systemd/system/wallboard-listener.service, copy/paste this in
+# sudo chmod +x /usr/local/bin/wallboard_listener.sh
+# sudo systemctl daemon-reload
+# sudo systemctl enable wallboard-listener.service
+# sudo systemctl start wallboard-listener.service
+# sudo systemctl status wallboard-listener.service
+
+[Unit]
+Description=Wallboard MQTT Listener
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+
+# Run as a non-root user for security (e.g., "wallboard" user).
+# Make sure that user is in the 'i2c' group if using ddcutil without sudo.
+User=wallboard
+
+# The command to execute:
+ExecStart=/usr/local/bin/wallboard_listener.sh
+
+# If the script ever exits, automatically restart it:
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
