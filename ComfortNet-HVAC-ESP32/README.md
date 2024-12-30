@@ -9,6 +9,7 @@ Decoded Commands so far:
  - Fan Demand Percentage 25.0%
  - Fan Mode 0.0
  - Fan On/Off Rate 200.0
+ - Cool Demand Percentage 100.0%
  - Heat Demand Percentage 50.0%
  - Humidification Demand 40.0%
  - 
