@@ -7,6 +7,7 @@
 # - Fan Mode 0.0
 # - Fan On/Off Rate 200.0
 # - Heat Demand Percentage 50.0%
+# - Cool Demand Percentage 100.0%
 # - Humidification Demand 40.0%
 
 # Much of the information gather on the procotol and decoding were gain from the below repos:
@@ -93,6 +94,11 @@ globals:
     restore_value: false
     initial_value: "0.0"
 
+  - id: cool_demand_glob
+    type: float
+    restore_value: false
+    initial_value: "0.0"
+
 
 ##################################
 # 2) CREATE SENSORS FOR HA ENTITIES
@@ -138,6 +144,14 @@ sensor:
     accuracy_decimals: 1
     lambda: |-
       return id(heat_demand_glob);
+
+  - platform: template
+    name: "Cool Demand"
+    id: cool_demand_sensor
+    unit_of_measurement: "%"
+    accuracy_decimals: 1
+    lambda: |-
+      return id(cool_demand_glob);
 
 #################################
 #### UART SETUP/DECODE BYTES ####
@@ -492,6 +506,46 @@ uart:
                 }
               }
 
+              // HEAT_DEMAND (0x64)
+              if (cmd_code == 0x64) {
+                size_t data_start = cmd_index + 2;
+                size_t remaining = (10 + packet_length) - data_start;
+                if (remaining >= 2) {
+                  uint8_t refresh_timer = bytes[data_start];
+                  uint8_t heat_demand_percent_byte = bytes[data_start + 1];
+                  float heat_demand_percentage = heat_demand_percent_byte / 2.0f;
+
+                  ESP_LOGD("uart", "HEAT_DEMAND Details:");
+                  ESP_LOGD("uart", "  Refresh Timer: %u", refresh_timer);
+                  ESP_LOGD("uart", "  Heat Demand Percentage: %.1f%%", heat_demand_percentage);
+
+                  // Update the global variable for Heat Demand
+                  id(heat_demand_glob) = heat_demand_percentage;
+                } else {
+                  ESP_LOGW("uart", "Not enough bytes for HEAT_DEMAND command payload.");
+                }
+              }
+
+              // COOL_DEMAND (0x65)
+              if (cmd_code == 0x65) {
+                size_t data_start = cmd_index + 2;
+                size_t remaining = (10 + packet_length) - data_start;
+                if (remaining >= 2) {
+                  uint8_t refresh_timer = bytes[data_start];
+                  uint8_t cool_demand_percent_byte = bytes[data_start + 1];
+                  float cool_demand_percentage = cool_demand_percent_byte / 2.0f;
+
+                  ESP_LOGD("uart", "COOL_DEMAND Details:");
+                  ESP_LOGD("uart", "  Refresh Timer: %u", refresh_timer);
+                  ESP_LOGD("uart", "  Cool Demand Percentage: %.1f%%", cool_demand_percentage);
+
+                  // Update the global variable for Cool Demand
+                  id(cool_demand_glob) = cool_demand_percentage;
+                } else {
+                  ESP_LOGW("uart", "Not enough bytes for COOL_DEMAND command payload.");
+                }
+              }
+
               // FAN_DEMAND (0x66)
               if (cmd_code == 0x66) {
                 size_t data_start = cmd_index + 2;
@@ -524,25 +578,7 @@ uart:
                 }
               }
 
-              // HEAT_DEMAND (0x64)
-              if (cmd_code == 0x64) {
-                size_t data_start = cmd_index + 2;
-                size_t remaining = (10 + packet_length) - data_start;
-                if (remaining >= 2) {
-                  uint8_t refresh_timer = bytes[data_start];
-                  uint8_t heat_demand_percent_byte = bytes[data_start + 1];
-                  float heat_demand_percentage = heat_demand_percent_byte / 2.0f;
 
-                  ESP_LOGD("uart", "HEAT_DEMAND Details:");
-                  ESP_LOGD("uart", "  Refresh Timer: %u", refresh_timer);
-                  ESP_LOGD("uart", "  Heat Demand Percentage: %.1f%%", heat_demand_percentage);
-
-                  // Update the global variable for Heat Demand
-                  id(heat_demand_glob) = heat_demand_percentage;
-                } else {
-                  ESP_LOGW("uart", "Not enough bytes for HEAT_DEMAND command payload.");
-                }
-              }
 
               // PERMANENT_SET_POINT_TEMP_HOLD_MODIFY (0x06), etc. ...
               // (other commands as needed)
