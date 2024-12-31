@@ -1,5 +1,12 @@
 # Add yaml snipped to home-assistant configuration.yaml to create entities
+
 mqtt:
+  binary_sensor:
+      name: "Wallboard Monitor Power"
+      state_topic: "wallboard/monitor/power/state"
+      payload_on: "on"
+      payload_off: "off"
+      value_template: "{{ value }}"
   button:
     # Monitor Power Commands
     - name: "Wallboard Monitor Off (DPMS)"
