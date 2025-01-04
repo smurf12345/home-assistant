@@ -3,31 +3,15 @@
 # Power/boot of controller/furance and call for heat
 # Thermostat set to Heat mode, Temperature set point 69F, Fan On (Continuous 25%).
 ####
-[13:40:48][W][uart:378]: Message length mismatch. Expected at least 139 bytes.
+
 [13:40:49][D][uart:357]: Dest | Src | Subnet | Meth | Params | SrcNode | MsgType | PktNum | Len | Payload HEX             | Checksum
 [13:40:49][D][uart:399]: 0x7F | 0xBF | 0x79  | 0x3F | 0xBF2F | 0x7F     | 0x3D    | 0x9F    | 33        | 47 7F 7F BF 7F 3F 7F 7F 7F 7F 7F 7F 7F 3F 7F 7F 7F 3F 7F 7F 7F BF 7F 7F 7F 7F BF BF 7F 7F 7F 7F 3F          | 0x7F7F
 [13:40:49][D][uart:425]: MessageType: UNKNOWN_MESSAGE_TYPE | Subnet: UNKNOWN_SUBNET | SendMethod: UNKNOWN_SEND_METHOD | NodeType: UNKNOWN_NODE_TYPE | Payload(ASCII): G....?.......?...?..............?
 [13:40:49][D][uart:521]: ...
-[13:40:49][D][uart:357]: Dest | Src | Subnet | Meth | Params | SrcNode | MsgType | PktNum | Len | Payload HEX             | Checksum
-[13:40:49][W][uart:378]: Message length mismatch. Expected at least 139 bytes.
-[13:40:50][D][uart:357]: Dest | Src | Subnet | Meth | Params | SrcNode | MsgType | PktNum | Len | Payload HEX             | Checksum
-[13:40:50][W][uart:378]: Message length mismatch. Expected at least 139 bytes.
-[13:40:50][D][uart:357]: Dest | Src | Subnet | Meth | Params | SrcNode | MsgType | PktNum | Len | Payload HEX             | Checksum
-[13:40:50][W][uart:378]: Message length mismatch. Expected at least 139 bytes.
-[13:40:51][D][uart:357]: Dest | Src | Subnet | Meth | Params | SrcNode | MsgType | PktNum | Len | Payload HEX             | Checksum
-[13:40:51][W][uart:378]: Message length mismatch. Expected at least 139 bytes.
-[13:40:51][D][uart:357]: Dest | Src | Subnet | Meth | Params | SrcNode | MsgType | PktNum | Len | Payload HEX             | Checksum
-[13:40:51][W][uart:378]: Message length mismatch. Expected at least 139 bytes.
-[13:40:52][D][uart:357]: Dest | Src | Subnet | Meth | Params | SrcNode | MsgType | PktNum | Len | Payload HEX             | Checksum
-[13:40:52][W][uart:378]: Message length mismatch. Expected at least 267 bytes.
 [13:40:53][D][uart:357]: Dest | Src | Subnet | Meth | Params | SrcNode | MsgType | PktNum | Len | Payload HEX             | Checksum
 [13:40:53][D][uart:399]: 0x7F | 0x7F | 0x7F  | 0x7F | 0x7F37 | 0x7F     | 0x3F    | 0xBF    | 63        | 7F 7F 7F FF 7F 7F 7F 7F 7F 7F 7F 7F 7F 7F 7F 7F 7F 3F 7F 7F 7F 7F 7F 7F 3F 7F 7F 7F 7F 7F BF 7F FF 33 3F 3F BF 3F 7F 7F 7F 7F 7F 7F 7F BF 7F FF 7F 7F 7F 7F BF 7F 7F 7F 7F 7F 7F BF 7F 7F 7F          | 0x7F3F
 [13:40:53][D][uart:425]: MessageType: UNKNOWN_MESSAGE_TYPE | Subnet: UNKNOWN_SUBNET | SendMethod: UNKNOWN_SEND_METHOD | NodeType: UNKNOWN_NODE_TYPE | Payload(ASCII): .................?......?........3??.?.........................
 [13:40:53][D][uart:521]: ...
-[13:40:53][D][uart:357]: Dest | Src | Subnet | Meth | Params | SrcNode | MsgType | PktNum | Len | Payload HEX             | Checksum
-[13:40:53][W][uart:378]: Message length mismatch. Expected at least 203 bytes.
-[13:40:54][D][uart:357]: Dest | Src | Subnet | Meth | Params | SrcNode | MsgType | PktNum | Len | Payload HEX             | Checksum
-[13:40:54][W][uart:378]: Message length mismatch. Expected at least 139 bytes.
 [13:41:10][D][uart:357]: Dest | Src | Subnet | Meth | Params | SrcNode | MsgType | PktNum | Len | Payload HEX             | Checksum
 [13:41:10][D][uart:399]: 0x01 | 0xFF | 0x02  | 0x00 | 0x0000 | 0xA5     | 0x00    | 0xA0    | 17        | 00 00 00 09 10 0C 03 3F 57 02 D8 94 94 C3 10 1D 84          | 0xD5EC
 [13:41:10][D][uart:425]: MessageType: REQUEST_TO_RECEIVE/RESPONSE | Subnet: Version 1 | SendMethod: NoRoute | NodeType: Network Coordinator | Payload(ASCII): .......?W........
@@ -97,12 +81,6 @@
 [13:41:21][D][uart:425]: MessageType: SET_NETWORK_NODE_LIST_RESPONSE | Subnet: Version 1 | SendMethod: NoRoute | NodeType: Network Coordinator | Payload(ASCII): .......?W........
 [13:41:21][D][uart:521]: ...
 [13:41:25][D][uart:357]: Dest | Src | Subnet | Meth | Params | SrcNode | MsgType | PktNum | Len | Payload HEX             | Checksum
-[13:41:25][W][uart:378]: Message length mismatch. Expected at least 205 bytes.
-[13:41:25][D][uart:357]: Dest | Src | Subnet | Meth | Params | SrcNode | MsgType | PktNum | Len | Payload HEX             | Checksum
-[13:41:25][W][uart:378]: Message length mismatch. Expected at least 13 bytes.
-[13:41:25][D][uart:357]: Dest | Src | Subnet | Meth | Params | SrcNode | MsgType | PktNum | Len | Payload HEX             | Checksum
-[13:41:25][W][uart:378]: Message length mismatch. Expected at least 172 bytes.
-[13:41:25][D][uart:357]: Dest | Src | Subnet | Meth | Params | SrcNode | MsgType | PktNum | Len | Payload HEX             | Checksum
 [13:41:25][D][uart:399]: 0x00 | 0x00 | 0x00  | 0x00 | 0x0000 | 0x00     | 0x00    | 0x00    | 0        |          | 0xAA89
 [13:41:25][D][uart:425]: MessageType: REQUEST_TO_RECEIVE/RESPONSE | Subnet: Broadcast | SendMethod: NoRoute | NodeType: Any | Payload(ASCII): 
 [13:41:25][D][uart:521]: ...
@@ -114,12 +92,6 @@
 [13:41:26][D][uart:399]: 0x01 | 0xFF | 0x02  | 0x00 | 0x0000 | 0xA5     | 0x00    | 0xA0    | 17        | 00 00 00 09 10 0C 03 3F 57 02 D8 94 94 C3 10 1D 84          | 0xD5EC
 [13:41:26][D][uart:425]: MessageType: REQUEST_TO_RECEIVE/RESPONSE | Subnet: Version 1 | SendMethod: NoRoute | NodeType: Network Coordinator | Payload(ASCII): .......?W........
 [13:41:26][D][uart:521]: ...
-[13:41:26][D][uart:357]: Dest | Src | Subnet | Meth | Params | SrcNode | MsgType | PktNum | Len | Payload HEX             | Checksum
-[13:41:26][W][uart:378]: Message length mismatch. Expected at least 205 bytes.
-[13:41:26][D][uart:357]: Dest | Src | Subnet | Meth | Params | SrcNode | MsgType | PktNum | Len | Payload HEX             | Checksum
-[13:41:26][W][uart:378]: Message length mismatch. Expected at least 13 bytes.
-[13:41:26][D][uart:357]: Dest | Src | Subnet | Meth | Params | SrcNode | MsgType | PktNum | Len | Payload HEX             | Checksum
-[13:41:26][W][uart:378]: Message length mismatch. Expected at least 172 bytes.
 [13:41:26][D][uart:357]: Dest | Src | Subnet | Meth | Params | SrcNode | MsgType | PktNum | Len | Payload HEX             | Checksum
 [13:41:26][D][uart:399]: 0x00 | 0x00 | 0x00  | 0x00 | 0x0000 | 0x00     | 0x00    | 0x00    | 0        |          | 0xAA89
 [13:41:26][D][uart:425]: MessageType: REQUEST_TO_RECEIVE/RESPONSE | Subnet: Broadcast | SendMethod: NoRoute | NodeType: Any | Payload(ASCII): 
@@ -152,12 +124,6 @@
 [13:41:30][D][uart:399]: 0xFF | 0x01 | 0x02  | 0x02 | 0x0200 | 0x01     | 0x8E    | 0xA0    | 17        | 06 00 00 14 20 EC 10 23 16 01 B2 DA 60 A4 81 46 67          | 0xCB0E
 [13:41:30][D][uart:425]: MessageType: GET_IDENTIFICATION_RESPONSE | Subnet: Version 1 | SendMethod: TargetedNode | NodeType: Thermostat | Payload(ASCII): .... ..#....`..Fg
 [13:41:30][D][uart:521]: ...
-[13:41:30][D][uart:357]: Dest | Src | Subnet | Meth | Params | SrcNode | MsgType | PktNum | Len | Payload HEX             | Checksum
-[13:41:30][W][uart:378]: Message length mismatch. Expected at least 205 bytes.
-[13:41:30][D][uart:357]: Dest | Src | Subnet | Meth | Params | SrcNode | MsgType | PktNum | Len | Payload HEX             | Checksum
-[13:41:30][W][uart:378]: Message length mismatch. Expected at least 13 bytes.
-[13:41:30][D][uart:357]: Dest | Src | Subnet | Meth | Params | SrcNode | MsgType | PktNum | Len | Payload HEX             | Checksum
-[13:41:30][W][uart:378]: Message length mismatch. Expected at least 172 bytes.
 [13:41:30][D][uart:357]: Dest | Src | Subnet | Meth | Params | SrcNode | MsgType | PktNum | Len | Payload HEX             | Checksum
 [13:41:30][D][uart:399]: 0x00 | 0x00 | 0x00  | 0x00 | 0x0000 | 0x00     | 0x00    | 0x00    | 0        |          | 0xAA89
 [13:41:30][D][uart:425]: MessageType: REQUEST_TO_RECEIVE/RESPONSE | Subnet: Broadcast | SendMethod: NoRoute | NodeType: Any | Payload(ASCII): 
