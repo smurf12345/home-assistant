@@ -4,6 +4,7 @@ HVAC is an Amana Furnace and Air Conditioner
 ComfortNet based on ClimateTalk Protocol???
 
 <img width="266" alt="image" src="https://github.com/user-attachments/assets/ef66fe05-1f4d-4fe6-9080-49eb7095480d" />
+<img width="305" alt="image" src="https://github.com/user-attachments/assets/e8651bda-ce90-4292-b07b-041580b8f383" />
 
 Decoded Commands so far:
  - Fan Demand Percentage 25.0%
@@ -12,7 +13,7 @@ Decoded Commands so far:
  - Cool Demand Percentage 100.0%
  - Heat Demand Percentage 50.0%
  - Humidification Demand 40.0%
- - 
+
 Much of the information gather on the procotol and decoding were gain from the below repos:
  - ClimateTalk Specs: https://github.com/rrmayer/climate-talk-web-api
  - ClimateTalk Python: https://github.com/kdschlosser/ClimateTalk
