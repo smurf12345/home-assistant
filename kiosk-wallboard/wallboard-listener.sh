@@ -10,7 +10,7 @@ USERNAME="<Replace with Username>"   # MQTT username
 PASSWORD="<Replace with Password>"   # MQTT password
 PORT=1883                            # Default MQTT port is 1883
 
-TOPIC="wallboard/#"                  # Subscribe to all subtopics under "wallboard/"
+TOPIC="wallboard/#" # Broad topic to listen to all related messages
 POWER_STATE_TOPIC="wallboard/monitor/power/state"
 BRIGHTNESS_STATE_TOPIC="wallboard/monitor/brightness/state"
 VOLUME_STATE_TOPIC="wallboard/monitor/volume/state"
@@ -49,45 +49,61 @@ handle_mqtt_command() {
     local payload="$2"
 
     case "$topic" in
-        "wallboard/monitor/power")
-            case "$payload" in
-                "on")
-                    echo "[INFO] Command: Turning monitor on"
-                    ddcutil setvcp D6 1
-                    check_power_state
-                    ;;
-                "off")
-                    echo "[INFO] Command: Turning monitor off"
-                    ddcutil setvcp D6 5
-                    check_power_state
-                    ;;
-                *)
-                    echo "[WARN] Unknown power command: $payload"
-                    ;;
-            esac
+    "wallboard/monitor/power")
+        case "$payload" in
+        "on")
+            echo "[INFO] Command: Turning monitor on"
+            ddcutil setvcp D6 1
+            check_power_state
             ;;
-        "wallboard/monitor/brightness")
-            if [[ "$payload" =~ ^[0-9]+$ && "$payload" -ge 0 && "$payload" -le 100 ]]; then
-                echo "[INFO] Command: Setting brightness to $payload%"
-                ddcutil setvcp 10 "$payload"
-                mosquitto_pub -h "$BROKER" -u "$USERNAME" -P "$PASSWORD" -t "$BRIGHTNESS_STATE_TOPIC" -m "$payload"
-            else
-                echo "[WARN] Invalid brightness value: $payload (must be 0-100)"
-            fi
-            ;;
-        "wallboard/monitor/volume")
-            if [[ "$payload" =~ ^[0-9]+$ && "$payload" -ge 0 && "$payload" -le 100 ]]; then
-                echo "[INFO] Command: Setting volume to $payload%"
-                ddcutil setvcp 62 "$payload"
-                mosquitto_pub -h "$BROKER" -u "$USERNAME" -P "$PASSWORD" -t "$VOLUME_STATE_TOPIC" -m "$payload"
-            else
-                echo "[WARN] Invalid volume value: $payload (must be 0-100)"
-            fi
+        "off")
+            echo "[INFO] Command: Turning monitor off"
+            ddcutil setvcp D6 5
+            check_power_state
             ;;
         *)
-            echo "[WARN] Unknown topic: $topic"
+            echo "[WARN] Unknown power command: $payload"
             ;;
+        esac
+        ;;
+    "wallboard/monitor/brightness")
+        if [[ "$payload" =~ ^[0-9]+$ && "$payload" -ge 0 && "$payload" -le 100 ]]; then
+            echo "[INFO] Command: Setting brightness to $payload%"
+            ddcutil setvcp 10 "$payload"
+            mosquitto_pub -h "$BROKER" -u "$USERNAME" -P "$PASSWORD" -t "$BRIGHTNESS_STATE_TOPIC" -m "$payload"
+        else
+            echo "[WARN] Invalid brightness value: $payload (must be 0-100)"
+        fi
+        ;;
+    "wallboard/monitor/volume")
+        if [[ "$payload" =~ ^[0-9]+$ && "$payload" -ge 0 && "$payload" -le 100 ]]; then
+            echo "[INFO] Command: Setting volume to $payload%"
+            ddcutil setvcp 62 "$payload"
+            mosquitto_pub -h "$BROKER" -u "$USERNAME" -P "$PASSWORD" -t "$VOLUME_STATE_TOPIC" -m "$payload"
+        else
+            echo "[WARN] Invalid volume value: $payload (must be 0-100)"
+        fi
+        ;;
+    "wallboard/cpu/command")
+        case "$payload" in
+        "suspend")
+            echo "[INFO] MQTT command received: Suspending system"
+            sudo systemctl suspend
+            ;;
+        "reboot")
+            echo "[INFO] MQTT command received: Rebooting system"
+            sudo systemctl reboot
+            ;;
+        *)
+            echo "[WARN] Unknown CPU command: $payload"
+            ;;
+        esac
+        ;;
+    *)
+        echo "[WARN] Unknown topic: $topic"
+        ;;
     esac
+
 }
 
 # --- Publish Initial Brightness State ---
@@ -107,15 +123,15 @@ check_power_state
 
 # --- Subscription Loop ---
 mosquitto_sub -h "$BROKER" -p "$PORT" -u "$USERNAME" -P "$PASSWORD" -t "$TOPIC" -v |
-while read -r full_message; do
-    topic=$(echo "$full_message" | awk '{print $1}')
-    payload=$(echo "$full_message" | cut -d ' ' -f2-)
-    # echo "[DEBUG] MQTT message received:"
-    # echo "  Topic: $topic"
-    # echo "  Payload: $payload"
+    while read -r full_message; do
+        topic=$(echo "$full_message" | awk '{print $1}')
+        payload=$(echo "$full_message" | cut -d ' ' -f2-)
+        # echo "[DEBUG] MQTT message received:"
+        # echo "  Topic: $topic"
+        # echo "  Payload: $payload"
 
-    handle_mqtt_command "$topic" "$payload"
-done &
+        handle_mqtt_command "$topic" "$payload"
+    done &
 
 # --- Monitoring Loop ---
 while true; do
