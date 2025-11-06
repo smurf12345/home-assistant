@@ -24,7 +24,7 @@ echo "Home Assistant is reachable. Starting Chromium..."
 chromium     --noerrdialogs     --disable-infobars     --kiosk     --disable-session-crashed-bubble    
  --disable-features=TranslateUI     --overscroll-history-navigation=0     --pull-to-refresh=2   --enabl
 e-features=OverlayScrollbar,OverlayScrollbarFlashAfterAnyScrollUpdate,OverlayScrollbarFlashWhenMouseEnt
-er  "https://ha.planetmurphy.com/dashboard-wallboard"
+er  "https://<fqdn>/dashboard-wallboard"
 #chromium     --noerrdialogs     --disable-infobars     --kiosk     --disable-session-crashed-bubble   
   --disable-features=TranslateUI     --overscroll-history-navigation=0     --pull-to-refresh=2   --enab
 le-features=OverlayScr
